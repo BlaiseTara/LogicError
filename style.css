@@ -1,0 +1,267 @@
+/* style.css - Minimal Code Template for LogicError Aesthetic */
+
+/* Universal Styles & Base */
+:root {
+    /* Color Palette */
+    --primary-color: #00aaff;          /* Vibrant blue for primary elements */
+    --secondary-color: #bbbbbb;        /* Lighter grey for secondary text/borders */
+    --accent-color: #28ee45;           /* Bright green for success/highlights */
+    --logic-error-accent: #ff6666;     /* Techy red for error/glitch effects */
+    --text-light: #e0e0e0;             /* Main light text color */
+    --text-button-light: #ffffff;      /* Brighter white for button text */
+
+    /* Backgrounds */
+    --background-dark-primary: #121212; /* Deep dark background */
+
+    /* Glows (with increased opacity for prominence) */
+    --glow-light: rgba(0, 170, 255, 0.7);     /* Primary blue glow */
+    --glow-error: rgba(255, 102, 102, 0.6);   /* Red error glow */
+
+    /* Fonts */
+    --font-poppins: 'Poppins', sans-serif; /* For general text */
+    --font-mono: 'Source Code Pro', monospace; /* For code-like/techy text */
+
+    /* Base Font Size for Responsive Scaling */
+    font-size: 16px; /* Default base for rem units */
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-poppins);
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--background-dark-primary);
+    /* `overflow-x: hidden` is crucial to prevent horizontal scrollbars from content
+       that might momentarily exceed the viewport during transitions or due to very
+       large un-breakable words. */
+    overflow-x: hidden;
+}
+
+/* Headings */
+h1, h2 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    /* Ensure text within headings is centered */
+    text-align: center;
+}
+
+/* Responsive Font Sizes using clamp() */
+h1 {
+    /* clamp(min, preferred, max)
+       Min: 1.8rem (a bit larger for readability on very small screens)
+       Preferred: 8vw (scales with viewport width)
+       Max: 3.5rem */
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+    text-shadow: 0 0 30px var(--glow-light);
+    /* Add padding-left/right to prevent text from touching screen edges on very small screens */
+    padding: 0 0.5rem;
+    /* Allow line breaks for long titles on small screens */
+    word-break: break-word;
+}
+h2 {
+    font-size: clamp(1.2rem, 5vw, 2.5rem); /* Existing, but re-evaluate in context of typing-effect scaling */
+    text-shadow: 0 0 20px var(--glow-light);
+    padding: 0 0.5rem;
+    word-break: break-word;
+}
+
+/* Paragraphs */
+p {
+
+    
+    text-shadow: 0 0 20px var(--glow-light);
+
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    padding: 0 1rem;
+    text-align: center;
+    word-break: break-word;
+
+    /* --- ADDED FOR MAX-WIDTH AND CENTERING --- */
+    max-width: 750px; /* Or any other desired max-width in px, rem, or em */
+    margin-left: auto;   /* Centers the block-level element horizontally */
+    margin-right: auto;  /* Centers the block-level element horizontally */
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--glow-light);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem; /* Use rem for padding */
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin: 0.625rem; /* Use rem for margin */
+    /* clamp(min, preferred, max)
+       Min: 0.9rem (ensures readability)
+       Preferred: 2.5vw (scales with viewport width)
+       Max: 1rem */
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Responsive button text */
+    /* Ensure button itself doesn't cause overflow */
+    max-width: 90%; /* Prevent button from being wider than the viewport */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-button-light);
+    border: 2px solid transparent;
+}
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px var(--glow-light);
+    text-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Background Gradient for Hero-like sections */
+.hero-background {
+    background: radial-gradient(circle at top left, #1c1c1c 0%, #121212 70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Use dynamic padding to give space on smaller screens, 1rem is usually good */
+    padding: 2.5rem 1rem; /* Adjusted padding for better mobile spacing */
+    text-align: center; /* Ensure all contained text is centered by default */
+    /* Add min/max width for safety, though clamp and padding usually handle this */
+    width: 100vw; /* Ensure it takes full viewport width */
+    overflow: hidden; /* Important to contain any potential overflows from children */
+}
+
+.hero-background h1 span {
+    color: var(--primary-color);
+}
+
+.hero-subheading {
+    margin-bottom: 1.5rem;
+    /* Keeping max-width and padding for the subheading
+       to ensure the overall text block is well-contained and centered. */
+    max-width: 95%;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+
+.typing-effect {
+    font-family: var(--font-mono);
+    color: var(--logic-error-accent);
+    /*border-bottom: 3px solid var(--primary-color);*/
+    padding-bottom: 2px;
+    display: inline-block; /* Keep inline-block to allow it to wrap naturally like text */
+    text-shadow: 0 0 20px var(--glow-error);
+
+    /* --- IMPORTANT CHANGES FOR SCALING INSTEAD OF CUTTING --- */
+
+    /* Remove these properties:
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    width: fit-content;
+    min-width: 0;
+    */
+
+    /* Add clamp() for font size to scale it down on small screens */
+    /* Adjust these values as needed for your specific desired min/max sizes */
+    font-size: clamp(0.9rem, 4vw, 2.5rem); /* Min, preferred (viewport width), Max */
+    line-height: 1.3; /* Adjust line-height if text wraps to prevent lines from being too close */
+
+    /* Ensure text aligns if it wraps */
+    text-align: center; /* This is already set on hero-background, but good to be explicit for the span */
+    word-break: break-word; /* Allow long words to break to prevent overflow */
+}
+
+.typing-effect::after {
+    content: '|';
+    animation: blink-caret .75s step-end infinite;
+    color: var(--text-light);
+    border-bottom: none;
+    padding-bottom: 0;
+    /* This needs to be inline-block to avoid breaking its own line */
+    display: inline-block;
+}
+
+
+/* Keyframes for blink-caret (already present, just for completeness) */
+@keyframes blink-caret {
+    from, to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Media Query for smaller screens if clamp() isn't enough or for specific overrides */
+/* These media queries become less critical when using clamp() and responsive units,
+   but can be used for very specific layout tweaks if necessary. */
+@media (max-width: 768px) {
+    .hero-background {
+        padding: 3rem 1rem; /* Maintain vertical padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Even smaller screen adjustments - less needed with clamp() */
+    .hero-background p {
+        margin-bottom: 0.5rem; /* Reduce margin on very small screens for tighter spacing */
+    }
+    .btn {
+        padding: 0.6rem 1.2rem; /* Slightly smaller padding for buttons */
+        font-size: clamp(0.8rem, 2.8vw, 0.9rem); /* Make button font slightly smaller on tiny screens */
+    }
+}
+
+/* Extra small screen adjustments (e.g., iPhone 5/SE width) */
+@media (max-width: 320px) {
+    h1 {
+        font-size: clamp(1.6rem, 7vw, 2.5rem); /* Tweak h1 for extremely small screens */
+    }
+    h2 {
+        font-size: clamp(1rem, 4.5vw, 1.8rem); /* Tweak h2 for extremely small screens */
+    }
+    p {
+        font-size: clamp(0.75rem, 2.8vw, 0.9rem); /* Tweak paragraph for extremely small screens */
+        padding: 0 0.8rem; /* Slightly less padding for paragraphs on very narrow screens */
+    }
+    .btn {
+        padding: 0.5rem 1rem; /* Smaller padding for buttons on very small screens */
+        font-size: clamp(0.75rem, 2.6vw, 0.85rem); /* Smaller font for buttons */
+    }
+    .typing-effect {
+        /* On very small screens, sometimes nowrap combined with a long string will overflow.
+           You might consider allowing it to wrap here if the content is truly long,
+           or ensuring the text is short. For now, max-width and overflow: hidden
+           are the primary controls. */
+        max-width: 95%; /* Give it a bit more room */
+    }
+}

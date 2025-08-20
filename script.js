@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         "Optimized for human readability, not always machine speed",
         "Completely dependent on obscure third-party libraries",
         "Totally not written using AI",
-        "Seamless"
     ];
 
     let currentPhraseIndex = 0;

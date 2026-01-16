@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LowQualityCoding</title>
+
+<style>
+	/* CRT Scanline Overlay */
+	body::before {
+		content: "";
+		position: fixed;
+		inset: 0;
+		pointer-events: none;
+		background: repeating-linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 0.15),
+		rgba(0, 0, 0, 0.15) 1px,
+		rgba(0, 0, 0, 0) 2px,
+		rgba(0, 0, 0, 0) 4px
+		);
+		mix-blend-mode: multiply;
+		z-index: 9999;
+	}
+
+	body::after {
+		content: "";
+		position: fixed;
+		inset: 0;
+		pointer-events: none;
+		background: radial-gradient(circle at center, rgba(0,255,0,0.06), transparent 70%);
+		z-index: 9998;
+	}
+
+	:root {
+		--bg: #0d1117;
+		--bg-alt: #161b22;
+		--text: #c9d1d9;
+		--green: #2ea043;
+		--green-soft: #3fb950;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", monospace;
+		background: var(--bg);
+		color: var(--text);
+		line-height: 1.6;
+	}
+
+	header {
+		background: linear-gradient(135deg, #0d1117, #0f1c14);
+		border-bottom: 1px solid #1f2a22;
+	}
+
+	.container {
+		max-width: 1100px;
+		margin: auto;
+		padding: 2rem;
+		margin-bottom: 10px;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo {
+		font-size: 1.4rem;
+		font-weight: bold;
+		color: var(--green-soft);
+	}
+
+	nav a {
+		color: var(--text);
+		text-decoration: none;
+		margin-left: 1.5rem;
+		transition: color 0.2s;
+	}
+
+	nav a:hover {
+		color: var(--green-soft);
+	}
+
+	.hero {
+		padding: 4rem 0;
+		text-align: center;
+	}
+
+	.hero h1 {
+		font-size: 2.5rem;
+		color: var(--green-soft);
+	}
+
+	.hero p {
+		max-width: 600px;
+		margin: 1rem auto 2rem;s
+		opacity: 0.85;
+	}
+
+	.button {
+		display: inline-block;
+		background: var(--green);
+		color: #fff;
+		padding: 0.75rem 1.5rem;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: background 0.2s, transform 0.1s;
+	}
+
+	.button:hover {
+		background: var(--green-soft);
+		transform: translateY(-2px);
+	}
+
+	section {
+		background: var(--bg-alt);
+		margin: 2rem 0;
+		border-radius: 10px;
+	}
+
+	section h2 {
+		color: var(--green-soft);
+		margin-bottom: 1rem;
+	}
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.card {
+		background: #0d1117;
+		border: 1px solid #1f2a22;
+		border-radius: 8px;
+		padding: 1.5rem;
+		margin-bottom:10px;
+	}
+
+	.card h3 {
+		margin-bottom: 0.5rem;
+		color: var(--green);
+	}
+
+	.video-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.video-card {
+		background: #0d1117;
+		border: 1px solid #1f2a22;
+		border-radius: 8px;
+		padding: 1rem;
+	}
+
+	.video-card iframe {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		border-radius: 6px;
+		border: none;
+		margin-bottom: 0.5rem;
+	}
+
+	.video-card h3 {
+		color: var(--green);
+		font-size: 1rem;
+	}
+
+
+	footer {
+	text-align: center;
+	padding: 2rem;
+	opacity: 0.6;
+	font-size: 0.9rem;
+	}
+
+	code {
+	background: #010409;
+	padding: 0.2rem 0.4rem;
+	border-radius: 4px;
+	color: var(--green-soft);
+	}
+</style>
+</head>
+<body>
+
+<header>
+	<div class="container">
+	<nav>
+		<div class="logo">@LowQualityCoding</div>
+		<div>
+		<a href="#about">About</a>
+		<a href="#content">Content</a>
+		<a href="#subscribe">Subscribe</a>
+		</div>
+	</nav>
+
+	<div class="hero">
+		<h1>I Do Programming And Other Related Things</h1>
+		<p>
+		Electrical projects, Game Dev, and Minecraft, all while doing it in the worst possible way I can...
+		</p>
+		<a class="button" href="https://youtube.com/@LowQualityCoding">My YouTube Channel</a>
+	</div>
+	</div>
+</header>
+
+<main class="container">
+
+	<section id="about" class="container">
+	<h2>About My Channel</h2>
+	<p>
+		I mostly do coding projects, but lately I have been trying to get minecraft servers running on random low-end devices.<br>
+		Like my Smartwatch!
+	</p>
+	</section>
+
+	<section id="content" class="container">
+	<h2>What I Like To Do:</h2>
+	<div class="cards">
+		<div class="card">
+			<h3>Electrical & Embedded</h3>
+			<p>Microcontrollers, electrical simulations, and soldering PCBs.</p>
+		</div>
+		<div class="card">
+			<h3>Hardware Hacking</h3>
+			<p>Making devices do things they were never intended to be used for.</p>
+		</div>
+		<div class="card">
+			<h3>Breaking Minecraft</h3>
+			<p>IDK, I just like playing Minecraft on the worst possible devices.</p>
+		</div>
+<!--	</div>
+		<div class="card">
+			<h3>Projects</h3>
+			<p>Placeholder becaise IDK</p>
+		</div>
+		<div class="card">
+			<h3>Experiments</h3>
+			<p>IDK</p>
+		</div>
+	</div>-->
+	</section>
+
+	<section id="popular" class="container">
+		<h2>Some Of My Popular Videos</h2>
+
+		<div class="video-grid">
+			<div class="video-card">
+				<iframe
+					src="https://youtu.be/embed/C-F94JLj5Bo"
+					allowfullscreen>
+				</iframe>
+				<h3>Running a Minecraft Server on my Smartwatch</h3>
+			</div>
+
+			<div class="video-card">
+				<iframe
+					src="https://youtu.be/embed/2jSZPRAgUiA"
+					allowfullscreen>
+				</iframe>
+				<h3>Can I Install Arch Linux Inside Minecraft?</h3>
+			</div>
+		</div>
+	</section>
+
+
+	<section id="subscribe" class="container">
+	<h2>Subscribe</h2>
+	<p>
+		I try to post once every month or so. Consider Subscribing to not miss any uploads!
+	</p><br>
+	<a class="button" href="https://youtube.com/@LowQualityCoding?sub_confirmation=1">Subscribe</a>
+	</section>
+
+</main>
+
+<footer>
+	© 2026 @LowQualityCoding - Website is a Work In Progress, IDK how to use html/css
+</footer>
+
+</body>
+</html>
